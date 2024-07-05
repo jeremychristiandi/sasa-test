@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('jenis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("category_id")->onDelete('cascade');
+            $table->foreignId("category_id")->constrained()->onDelete('cascade');
             $table->string("description");
             $table->boolean("isActive");
             $table->timestamps();

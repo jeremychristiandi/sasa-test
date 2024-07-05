@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('stocks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->onDelete('cascade');
-            $table->foreignId('jenis_id')->onDelete('cascade');
-            $table->foreignId('category_id')->onDelete('cascade');
-            $table->foreignId('location_id')->onDelete('cascade');
+            $table->foreignId('product_id');
+            $table->foreignId('jenis_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('location_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
             $table->boolean('isActive');
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('stocks');
     }
 };

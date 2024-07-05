@@ -45,7 +45,7 @@ class StockController extends Controller
         $item->product_id = $request->input('product');
         $item->jenis_id = $request->input('jenis');
         $item->location_id = $request->input('location');
-        $item->jenis_id = $request->input('quantity');
+        $item->quantity = $request->input('quantity');
         $item->isActive = $request->input('isActive');
         
         $item->save();
