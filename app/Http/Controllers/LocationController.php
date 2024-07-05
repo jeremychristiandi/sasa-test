@@ -30,7 +30,7 @@ class LocationController extends Controller
         
         $item->save();
 
-        return redirect('/locations');
+        return redirect('/locations')->with('success', 'Item has been created!');;
     }
 
 

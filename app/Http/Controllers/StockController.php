@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stock;
+use App\Models\Product;
+use App\Models\Jenis;
+use App\Models\Category;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,9 +20,17 @@ class StockController extends Controller
     }
     public function show(string $id) {
         $item = Stock::findOrFail($id);
+        $categories = Category::all();
+        $jenis = Jenis::all();
+        $products = Product::all();
+        $locations = Location::all();
 
         return view("stock-details", [
-            "stock" => $item
+            "stock" => $item,
+            "categories" => $categories,
+            "jenis" => $jenis,
+            "products" => $products,
+            "locations" => $locations,
         ]);
     }
 
@@ -31,7 +43,6 @@ class StockController extends Controller
         $item->product_id = $request->input('product');
         $item->location_id = $request->input('location');
         $item->quantity = $request->input('quantity');
-        $item->isActive = $request->input('isActive');
         
         $item->save();
 
@@ -46,10 +57,9 @@ class StockController extends Controller
         $item->jenis_id = $request->input('jenis');
         $item->location_id = $request->input('location');
         $item->quantity = $request->input('quantity');
-        $item->isActive = $request->input('isActive');
         
         $item->save();
-        return redirect('/stocks');
+        return redirect('/stocks')->with('success', 'Item has been updated!');
     }
 
     public function delete($id) {
@@ -59,6 +69,6 @@ class StockController extends Controller
             $record->delete();
         }
 
-        return redirect('/stocks');
+        return redirect('/stocks')->with('success', 'Item has been deleted!');
     }
 }

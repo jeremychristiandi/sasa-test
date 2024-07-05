@@ -11,14 +11,24 @@
             <input type="text" name="description" value="{{ old("description", $product->description) }}">
             </div>
             <div>
-            <label for="">Category</label>
-            <input disabled type="text" value="{{ optional($product->category)->description }}">
-            <input type="hidden" name="category" value="{{$product->category->id}}">
+            <label for="category">Category</label>
+            <select name="category" id="category">
+                @foreach($categories as $c)
+                @if($c->isActive == 1)
+                <option value="{{$c->id}}">{{$c->description}}</option>
+                @endif
+                @endforeach
+            </select>
             </div>
             <div>
-            <label for="">Category</label>
-            <input disabled type="text" value="{{ optional($product->jenis)->description }}">
-            <input type="hidden" name="jenis" value="{{$product->jenis->id}}">
+            <label for="jenis">Group</label>
+            <select name="jenis" id="jenis">
+                @foreach($jenis as $j)
+                @if($j->isActive == 1)
+                <option value="{{$j->id}}">{{$j->description}}</option>
+                @endif
+                @endforeach
+            </select>
             </div>
             <div>
             <div>

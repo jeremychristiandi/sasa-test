@@ -34,7 +34,9 @@
                 <label for="name" class="form-label">Category</label>
                 <select name="category" id="category">
                 @foreach ($categories as $c)
+                @if($c->isActive == 1)
                 <option value="{{$c->id}}">{{$c->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -61,7 +63,9 @@
                 <label for="name" class="form-label">Category</label>
                 <select name="category" id="category">
                 @foreach ($categories as $c)
+                @if($c->isActive == 1)
                 <option value="{{$c->id}}">{{$c->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -69,7 +73,9 @@
                 <label for="name" class="form-label">Product Group</label>
                 <select name="jenis" id="jenis">
                 @foreach ($jenis as $j)
+                @if($j->isActive == 1)
                 <option value="{{$j->id}}">{{$j->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -111,7 +117,9 @@
                 <label for="name" class="form-label">Product</label>
                 <select name="product" id="product">
                 @foreach ($products as $p)
+                @if($p->isActive == 1)
                 <option value="{{$p->id}}">{{$p->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -119,7 +127,9 @@
                 <label for="name" class="form-label">Product Group</label>
                 <select name="jenis" id="jenis">
                 @foreach ($jenis as $j)
+                @if($j->isActive == 1)
                 <option value="{{$j->id}}">{{$j->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -127,7 +137,9 @@
                 <label for="name" class="form-label">Category</label>
                 <select name="category" id="category">
                 @foreach ($categories as $c)
+                @if($c->isActive == 1)
                 <option value="{{$c->id}}">{{$c->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
@@ -135,17 +147,15 @@
                 <label for="name" class="form-label">Lokasi Gudang</label>
                 <select name="location" id="location">
                 @foreach ($locations as $l)
+                @if($l->isActive == 1)
                 <option value="{{$l->id}}">{{$l->description}}</option>
+                @endif
                 @endforeach
                 </select>
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Stok</label>
                 <input type="number" class="mb-2" value="" id="quantity" placeholder="Jumlah stok" name="quantity">
-            </div>
-            <div class="mb-3">
-                <label for="name" class="form-label">Is Active</label>
-                <input type="text" class="mb-2" value="" id="isActive" placeholder="isActive" name="isActive">
             </div>
             <div class="text-center">
                   <button class="btn btn-primary" type="submit">Add</button>

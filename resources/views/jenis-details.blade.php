@@ -12,8 +12,13 @@
             </div>
             <div>
             <label for="">Category</label>
-            <input disabled type="text" value="{{ optional($jenis->category)->description }}">
-            <input type="hidden" name="category" value="{{$jenis->category->id}}">
+            <select name="category" id="">
+                @foreach($categories as $c)
+                @if($c->isActive == 1)
+                <option value="{{$c->id}}">{{$c->description}}</option>
+                @endif
+                @endforeach
+            </select>
             </div>
             <div>
             <label for="">Is active</label>

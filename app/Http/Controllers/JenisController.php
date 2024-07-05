@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jenis;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +18,11 @@ class JenisController extends Controller
 
     public function show(string $id) {
         $jenis = Jenis::findOrFail($id);
+        $categories = Category::all();
 
         return view("jenis-details", [
-            "jenis" => $jenis
+            "jenis" => $jenis,
+            "categories" => $categories
         ]);
     }
 
