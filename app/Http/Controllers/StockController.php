@@ -35,7 +35,7 @@ class StockController extends Controller
         
         $item->save();
 
-        return redirect('/products');
+        return redirect('/stocks');
     }
 
     public function update(Request $request, $id)
@@ -44,6 +44,8 @@ class StockController extends Controller
         $item->category_id = $request->input('category');
         $item->product_id = $request->input('product');
         $item->jenis_id = $request->input('jenis');
+        $item->location_id = $request->input('location');
+        $item->jenis_id = $request->input('quantity');
         $item->isActive = $request->input('isActive');
         
         $item->save();

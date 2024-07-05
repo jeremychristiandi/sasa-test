@@ -12,7 +12,8 @@
             </div>
             <div>
             <label for="">Category</label>
-            <input type="text" name="category" value="{{ old("category_id", optional($jenis->category)->description) }}">
+            <input disabled type="text" value="{{ optional($jenis->category)->description }}">
+            <input type="hidden" name="category" value="{{$jenis->category->id}}">
             </div>
             <div>
             <label for="">Is active</label>

@@ -8,27 +8,29 @@
     @method("put")
             <div>
             <label for="">Product</label>
-            <input type="text" name="product" value="{{ old("product_id", optional($stock->product)->description) }}">
+            <input disabled type="text" value="{{ optional($stock->product)->description }}">
+            <input type="hidden" name="product" value="{{$stock->product->id}}">
             </div>
             <div>
             <label for="">Category</label>
-            <input type="text" name="category" value="{{ old("category_id", optional($stock->category)->description) }}">
+            <input disabled type="text" value="{{ optional($stock->category)->description }}">
+            <input type="hidden" name="category" value="{{$stock->category->id}}">
             </div>
-            <div>
             <div>
             <label for="">Jenis</label>
-            <input type="text" name="jenis" value="{{ old("jenis_id", optional($stock->jenis)->description) }}">
+            <input disabled type="text" value="{{ optional($stock->jenis)->description }}">
+            <input type="hidden" name="jenis" value="{{$stock->jenis->id}}">
             </div>
             <div>
-            <div>
             <label for="">Location</label>
-            <input type="text" name="location" value="{{ old("location_id", optional($stock->location)->description) }}">
+            <input disabled type="text" value="{{ optional($stock->location)->description }}">
+            <input type="hidden" name="location" value="{{$stock->location->id}}">
             </div>
             <div>
             <label for="">Quantity</label>
-            <input type="number" name="quantity" value="{{ old("quantity", $stock->quantity) }}">
+            <input type="number" name="quantity" value="{{ $stock->quantity }}">
             <label for="">Is active</label>
-            <input type="number" name="isActive" value="{{ old("isActive", $stock->isActive) }}">
+            <input type="text" name="isActive" value="{{ $stock->isActive }}">
             </div>
             <button type="submit">Edit</button>
         </form>

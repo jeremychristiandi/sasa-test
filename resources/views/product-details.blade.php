@@ -12,12 +12,13 @@
             </div>
             <div>
             <label for="">Category</label>
-            <input type="text" name="category" value="{{ old("category_id", optional($product->category)->description)}}">
+            <input disabled type="text" value="{{ optional($product->category)->description }}">
+            <input type="hidden" name="category" value="{{$product->category->id}}">
             </div>
             <div>
-            <div>
-            <label for="">Jenis</label>
-            <input type="text" name="jenis" value="{{ old("jenis_id", optional($product->jenis)->description)}}">
+            <label for="">Category</label>
+            <input disabled type="text" value="{{ optional($product->jenis)->description }}">
+            <input type="hidden" name="jenis" value="{{$product->jenis->id}}">
             </div>
             <div>
             <div>
